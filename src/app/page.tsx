@@ -1,69 +1,264 @@
 import Image from "next/image";
+import { Button } from "@/components/Button";
+import { Chip } from "@/components/Chip";
+import { DiaryPage } from "@/components/DiaryPage";
+import { Faceplates } from "@/components/Faceplates";
+import { Faq } from "@/components/Faq";
+import { GoalBar } from "@/components/GoalBar";
+import { PhoneMockup } from "@/components/PhoneMockup";
+import { PrivacyList } from "@/components/PrivacyList";
+import { RecapCard } from "@/components/RecapCard";
+import { RetroWindow, WindowBody } from "@/components/RetroWindow";
+import { SectionHead } from "@/components/SectionHead";
+import { Step } from "@/components/Step";
+import { StickerShelf } from "@/components/StickerShelf";
+import { StoreButtons } from "@/components/StoreButtons";
+import { HOME_DESCRIPTION, SITE_NAME } from "@/content/site";
+import type { Metadata } from "next";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: { absolute: SITE_NAME },
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: SITE_NAME,
+    description: HOME_DESCRIPTION,
+    url: "/",
+  },
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main id="top">
+      <section className="hero">
+        <div className="wrap hero-grid">
+          <div className="hero-copy">
+            <Chip>iPhone + Android ♡ private by default</Chip>
+            <h1>a lil diary for the money u kept</h1>
+            <p className="lede">
+              Dear Wallet is a pocket diary for the things you wanted and
+              didn&apos;t buy. Log a nvm in under 10 seconds, get a little reward,
+              and watch the money you kept add up.
+            </p>
+            <div className="hero-ctas">
+              <StoreButtons wrapped={false} />
+              <Button href="#how" variant="ghost">
+                see how it works
+              </Button>
+            </div>
+            <ul className="hero-notes">
+              <li>no budgets</li>
+              <li>no streaks</li>
+              <li>no bank login</li>
+              <li>no ads</li>
+            </ul>
+          </div>
+          <PhoneMockup />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      <section className="section" id="how" aria-labelledby="how-title">
+        <div className="wrap">
+          <SectionHead
+            label="how it works"
+            title="three taps, one lil win"
+            titleId="how-title"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <p className="lede">
+              Most money apps track what you spent. Dear Wallet keeps the moments
+              you paused, and makes them feel like something.
+            </p>
+          </SectionHead>
+          <ol className="steps">
+            <Step image="/stickers/common-flip-phone.svg" title="log the nvm">
+              Saw it, wanted it, walked away? Type how much it was and what it
+              was. That&apos;s all it needs, and it works offline.
+            </Step>
+            <Step image="/stickers/rare-holo-cd.svg" title="get a lil reward">
+              Every day you show up earns a star on your calendar, and stickers
+              drop as you go. The rare ones are holo.
+            </Step>
+            <Step
+              image="/stickers/common-kept-stack.svg"
+              title="watch it add up"
+            >
+              Your tally grows by day, week and month. Point it at a goal and see
+              how close you are to the thing you actually want.
+            </Step>
+          </ol>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section" id="features" aria-labelledby="feat-title">
+        <div className="wrap">
+          <SectionHead
+            label="what's inside"
+            title="cute on purpose"
+            titleId="feat-title"
+          />
+          <div className="bento">
+            <RetroWindow
+              title="DIARY.EXE"
+              tint="c1"
+              dots={2}
+              className="feature span-4"
+            >
+              <WindowBody>
+                <h3>a diary that&apos;s actually fun to keep</h3>
+                <p>
+                  A gentle prompt each day, five moods to pick from, and one line
+                  is plenty. Then decorate the page with the stickers you&apos;ve
+                  earned.
+                </p>
+                <DiaryPage />
+              </WindowBody>
+            </RetroWindow>
+
+            <RetroWindow title="GOAL" tint="c3" className="feature span-2">
+              <WindowBody>
+                <h3>one goal at a time</h3>
+                <p>Pick something fun to keep money for. No deadline, no budget.</p>
+                <p className="label" style={{ marginTop: 6 }}>
+                  keeping money for
+                </p>
+                <p style={{ fontWeight: 900, fontSize: 19 }}>concert tickets</p>
+                <GoalBar />
+              </WindowBody>
+            </RetroWindow>
+
+            <RetroWindow title="FACEPLATES" tint="c5" className="feature span-3">
+              <WindowBody>
+                <h3>swap your faceplate</h3>
+                <p>
+                  Six palettes, like snap-on phone covers. Three are yours from
+                  day one; the rest pop open as you log and write.
+                </p>
+                <Faceplates />
+                <p className="muted">
+                  Tap one and the whole app changes colour straight away. Midnight
+                  CD unlocks at $1,000 kept.
+                </p>
+              </WindowBody>
+            </RetroWindow>
+
+            <RetroWindow
+              title="RECAP"
+              tint="c2"
+              holo
+              className="feature span-3"
+            >
+              <WindowBody>
+                <h3>your month as a mixtape</h3>
+                <p>
+                  Every month becomes a CD with a track list of the things you
+                  said nvm to. Save it or share it as a story-sized card.
+                </p>
+                <RecapCard />
+              </WindowBody>
+            </RetroWindow>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="stk-title">
+        <div className="wrap">
+          <SectionHead
+            label="collect them all"
+            title="75 stickers, earned not sold"
+            titleId="stk-title"
+            center
+          >
+            <p className="lede">
+              Stickers drop as you log and write. New packs unlock at milestones
+              and with the seasons. You can&apos;t buy them, and you never lose
+              them.
+            </p>
+          </SectionHead>
+        </div>
+        <StickerShelf />
+      </section>
+
+      <section className="section" aria-labelledby="promise-title">
+        <div className="wrap">
+          <SectionHead
+            label="the dear wallet promise"
+            title="no shame, ever"
+            titleId="promise-title"
+          />
+          <ul className="promises">
+            <li>
+              <strong>no budgets to blow</strong>
+              <span>
+                Nothing to stay under. Every nvm counts, big or small.
+              </span>
+            </li>
+            <li>
+              <strong>no streaks to lose</strong>
+              <span>
+                Stars never reset. Skip a week and your calendar is still glowing.
+              </span>
+            </li>
+            <li>
+              <strong>bought it after all?</strong>
+              <span>
+                All good. It quietly leaves your tally, and you can undo it.
+              </span>
+            </li>
+            <li>
+              <strong>no guilt-trip pings</strong>
+              <span>
+                One optional weekly check-in, written like a text from a friend.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="section" id="privacy" aria-labelledby="priv-title">
+        <div className="wrap">
+          <RetroWindow title="PRIVACY.EXE" tint="c4" dots={3}>
+            <PrivacyList />
+          </RetroWindow>
+        </div>
+      </section>
+
+      <section className="section" id="faq" aria-labelledby="faq-title">
+        <div className="wrap">
+          <SectionHead
+            label="questions"
+            title="good to know"
+            titleId="faq-title"
+            center
+          />
+          <Faq />
+        </div>
+      </section>
+
+      <section className="section" id="download" aria-labelledby="dl-title">
+        <div className="wrap">
+          <RetroWindow
+            title="DEAR_WALLET.EXE"
+            tint="c1"
+            dots={3}
+            className="cta-window"
+          >
+            <WindowBody>
+              <Image
+                className="logo"
+                src="/logo-mark.svg"
+                alt=""
+                width={120}
+                height={118}
+              />
+              <h2 id="dl-title">start ur kept total today</h2>
+              <p className="lede">
+                Your first nvm takes ten seconds. Your future self says thanks.
+              </p>
+              <StoreButtons centered />
+            </WindowBody>
+          </RetroWindow>
+        </div>
+      </section>
+    </main>
   );
 }
