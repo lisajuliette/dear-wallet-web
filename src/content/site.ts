@@ -1,6 +1,11 @@
 export const SITE_URL = "https://dearwallet.app";
 export const SUPPORT_EMAIL = "hello@dearwallet.app";
-export const COMPANY = "Arcane Encode";
+export const PRIVACY_EMAIL = "lisa@pixelwitch.dev";
+export const COMPANY = "Pixel Witch";
+export const KVK = "96974990";
+export const COMPANY_ADDRESS = "De Nieuwe Erven 3 Unit 13605, 5431NV Cuijk";
+export const COMPANY_CITY = "The Hague";
+export const DATABASE_REGION = "North Virginia";
 export const APP_STORE_URL = "#download";
 export const PLAY_STORE_URL = "#download";
 export const LAST_UPDATED = "7 November 2026";

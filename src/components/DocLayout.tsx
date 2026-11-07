@@ -29,20 +29,22 @@ export function DocLayout({
         <p className="lede">{lede}</p>
       </div>
       <div className="doc-layout">
-        <RetroWindow
-          as="nav"
-          title="ON THIS PAGE"
-          className="toc"
-          aria-label="On this page"
-        >
-          <ol>
-            {toc.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-          </ol>
-        </RetroWindow>
+        <details className="toc window">
+          <summary className="bar">
+            <span className="title">ON THIS PAGE</span>
+            <span className="toc-marker" aria-hidden="true" />
+          </summary>
+          <nav aria-label="On this page">
+            <ol>
+              {toc.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </details>
+
         <RetroWindow title={windowTitle} className="doc" dots={2}>
           <WindowBody>{children}</WindowBody>
         </RetroWindow>

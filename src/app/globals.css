@@ -1564,6 +1564,19 @@ p {
   top: calc(env(safe-area-inset-top, 0px) + 96px);
 }
 
+.toc > .bar {
+  cursor: default;
+  list-style: none;
+}
+
+.toc > .bar::-webkit-details-marker {
+  display: none;
+}
+
+.toc .toc-marker {
+  display: none;
+}
+
 .toc ol {
   margin: 0;
   padding: 14px 16px 14px 34px;
@@ -1580,6 +1593,17 @@ p {
 
 .toc a:hover {
   text-decoration: underline;
+}
+
+/* Desktop: always show the list, even if details is closed */
+@media (min-width: 901px) {
+  .toc > nav {
+    display: block !important;
+  }
+
+  .toc > .bar {
+    pointer-events: none;
+  }
 }
 
 .doc {
@@ -1667,9 +1691,64 @@ p {
 @media (max-width: 900px) {
   .doc-layout {
     grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
   }
+
   .toc {
     position: static;
+  }
+
+  .toc > .bar {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .toc .toc-marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--outline);
+    background: var(--c3);
+    display: grid;
+    place-items: center;
+    flex: none;
+    font: 600 18px/1 var(--font-pixel), "Pixelify Sans", monospace;
+  }
+
+  .toc .toc-marker::before {
+    content: "+";
+  }
+
+  .toc[open] .toc-marker {
+    background: var(--c4);
+  }
+
+  .toc[open] .toc-marker::before {
+    content: "–";
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 8px 10px 12px;
+    gap: 6px;
+  }
+
+  .toc a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid color-mix(in srgb, var(--outline) 35%, transparent);
+    background: var(--c2);
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .toc a:hover,
+  .toc a:active {
+    background: var(--c1);
+    text-decoration: none;
   }
 }
 

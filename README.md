@@ -25,10 +25,9 @@ npm run dev
 Placeholders are highlighted with yellow dashed `<Todo>` marks on the pages, and central values live in `src/content/site.ts`.
 
 1. **Domain:** `SITE_URL` (currently `https://dearwallet.app`)
-2. **Support email:** `SUPPORT_EMAIL`
-3. **Company details** in privacy and terms: legal form, KvK, address, court city
-4. **Supabase region** and backup retention days in the privacy policy
-5. **Store links:** `APP_STORE_URL` and `PLAY_STORE_URL`
-6. **Store badges:** swap styled text buttons for official badges at launch
-7. **Pricing:** add to the FAQ once decided
-8. **Remove Todo highlights** when every placeholder is filled
+2. **Support email:** `SUPPORT_EMAIL` (privacy contact is `PRIVACY_EMAIL`)
+3. **Backup retention days** in the privacy policy
+4. **Store links:** `APP_STORE_URL` and `PLAY_STORE_URL`
+5. **Store badges:** swap styled text buttons for official badges at launch
+6. **Pricing:** add to the FAQ once decided
+7. **Remove Todo highlights** when every placeholder is filled

@@ -38,7 +38,7 @@ export function Faq() {
         <summary>Where is my data stored?</summary>
         <div>
           <p>
-            On your phone first, then backed up to our database in the EU if you
+            On your phone first, then backed up to our database in the US if you
             sign in. The <Link href="/privacy">privacy policy</Link> has the
             details.
           </p>

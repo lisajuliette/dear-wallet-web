@@ -1,5 +1,11 @@
-import { Todo } from "@/components/Todo";
-import { COMPANY, LAST_UPDATED, SUPPORT_EMAIL } from "@/content/site";
+import {
+  COMPANY,
+  COMPANY_ADDRESS,
+  COMPANY_CITY,
+  KVK,
+  LAST_UPDATED,
+  PRIVACY_EMAIL,
+} from "@/content/site";
 
 export const termsToc = [
   { href: "#agree", label: "agreeing to these terms" },
@@ -23,11 +29,10 @@ export function TermsContent() {
       <p className="muted">Last updated {LAST_UPDATED}</p>
       <h2 id="agree">Agreeing to these terms</h2>
       <p>
-        These terms are an agreement between you and {COMPANY} (
-        <Todo>[legal form]</Todo>, KvK <Todo>[KvK number]</Todo>,{" "}
-        <Todo>[registered address]</Todo>, the Netherlands), &quot;we&quot; in
-        these terms. By downloading or using Dear Wallet you agree to them. If
-        you don&apos;t agree, please don&apos;t use the app.
+        These terms are an agreement between you and {COMPANY} (KvK {KVK},{" "}
+        {COMPANY_ADDRESS}, the Netherlands), &quot;we&quot; in these terms. By
+        downloading or using Dear Wallet you agree to them. If you don&apos;t
+        agree, please don&apos;t use the app.
       </p>
 
       <h2 id="what">What Dear Wallet is</h2>
@@ -134,7 +139,7 @@ export function TermsContent() {
       <h2 id="law">Governing law</h2>
       <p>
         These terms are governed by Dutch law. Disputes go to the competent court
-        in <Todo>[city]</Todo>, the Netherlands, unless consumer law gives you the
+        in {COMPANY_CITY}, the Netherlands, unless consumer law gives you the
         right to go to a court where you live. EU consumers can also use the
         EU&apos;s online dispute resolution platform.
       </p>
@@ -142,7 +147,7 @@ export function TermsContent() {
       <h2 id="contact-t">Contact</h2>
       <p>
         Questions about these terms:{" "}
-        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
     </>
   );

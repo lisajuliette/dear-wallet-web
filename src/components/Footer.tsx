@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { COMPANY, SITE_TAGLINE } from "@/content/site";
+import { COMPANY, KVK, SITE_TAGLINE } from "@/content/site";
 
-// Build-time year — avoids Cache Components / hydration issues with Date.now()
 const YEAR = 2026;
 
 export function Footer() {
@@ -16,7 +15,8 @@ export function Footer() {
           </Link>
           <small>{SITE_TAGLINE}</small>
           <small>
-            © {YEAR} {COMPANY}. Made in the Netherlands.
+            © {YEAR} {COMPANY}. All rights reserved. KvK {KVK}. Made in The
+            Hague, Netherlands.
           </small>
         </div>
         <nav aria-label="Footer">

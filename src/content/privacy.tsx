@@ -1,5 +1,12 @@
 import { Todo } from "@/components/Todo";
-import { COMPANY, LAST_UPDATED, SUPPORT_EMAIL } from "@/content/site";
+import {
+  COMPANY,
+  COMPANY_ADDRESS,
+  DATABASE_REGION,
+  KVK,
+  LAST_UPDATED,
+  PRIVACY_EMAIL,
+} from "@/content/site";
 
 export const privacyToc = [
   { href: "#summary", label: "the short version" },
@@ -42,12 +49,10 @@ export function PrivacyContent() {
 
       <h2 id="who">Who we are</h2>
       <p>
-        Dear Wallet is made by {COMPANY},{" "}
-        <Todo>[legal form, e.g. VOF / B.V.]</Todo>, registered with the Dutch
-        Chamber of Commerce (KvK) under number <Todo>[KvK number]</Todo>, at{" "}
-        <Todo>[registered address]</Todo>, the Netherlands. We are the controller
-        of the personal data described here. Contact us at{" "}
-        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        Dear Wallet is made by {COMPANY}, registered with the Dutch Chamber of
+        Commerce (KvK) under number {KVK}, at {COMPANY_ADDRESS}, the Netherlands.
+        We are the controller of the personal data described here. Contact us at{" "}
+        <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
 
       <h2 id="collect">What we collect</h2>
@@ -167,9 +172,9 @@ export function PrivacyContent() {
       <h2 id="where">Where it&apos;s stored</h2>
       <p>
         Data you sync is stored with Supabase, our database and file storage
-        provider, in their <Todo>[EU region, e.g. Frankfurt, Germany]</Todo>{" "}
-        region. Data is encrypted in transit and at rest. Each account can only
-        read its own rows and photos; this is enforced by the database itself.
+        provider, in their {DATABASE_REGION} region. Data is encrypted in transit
+        and at rest. Each account can only read its own rows and photos; this is
+        enforced by the database itself.
       </p>
 
       <h2 id="share">Who we share it with</h2>
@@ -231,7 +236,7 @@ export function PrivacyContent() {
       </ul>
       <p>
         For anything else, email{" "}
-        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> and we&apos;ll
+        <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a> and we&apos;ll
         reply within one month. You also have the right to complain to the Dutch
         Data Protection Authority (Autoriteit Persoonsgegevens) or the authority
         where you live.
@@ -253,8 +258,8 @@ export function PrivacyContent() {
 
       <h2 id="contact">Contact</h2>
       <p>
-        {COMPANY}, <Todo>[registered address]</Todo>, the Netherlands. Email{" "}
-        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
+        {COMPANY}, {COMPANY_ADDRESS}, the Netherlands. Email{" "}
+        <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.
       </p>
     </>
   );
