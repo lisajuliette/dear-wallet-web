@@ -1163,7 +1163,7 @@ p {
   background: var(--surface);
   border: 2px solid var(--outline);
   background-image: radial-gradient(
-    circle at 50% 62%,
+    circle at 50% 50%,
     var(--outline) 3px,
     transparent 3.5px
   );
